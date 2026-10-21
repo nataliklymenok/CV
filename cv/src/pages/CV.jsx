@@ -181,7 +181,13 @@ const Section = ({ title, order, children }) => (
   <Box component="section" sx={{ order: { xs: order, md: 0 } }}>
     <Typography
       variant="h2"
-      sx={{ pb: 2, mb: 4, borderBottom: 1, borderColor: "divider" }}
+      sx={{
+        pb: 2,
+        mb: 4,
+        borderBottom: 1,
+        borderColor: "divider",
+        "@media print": { pb: 1.5, mb: 3 },
+      }}
     >
       {title}
     </Typography>
@@ -205,6 +211,14 @@ const CV = () => {
         mx: "auto",
         px: { xs: 2.5, sm: 5 },
         py: { xs: 5, md: 10 },
+
+        "@media print": {
+          gridTemplateColumns: "240px minmax(0, 1fr)",
+          columnGap: 6,
+          zoom: 0.8,
+          maxWidth: "none",
+          p: 0,
+        },
       }}
     >
       <Box
@@ -213,6 +227,7 @@ const CV = () => {
           display: { xs: "contents", md: "flex" },
           flexDirection: "column",
           gap: 5,
+          "@media print": { display: "flex", gap: 4 },
         }}
       >
         <Box
@@ -222,6 +237,7 @@ const CV = () => {
           sx={{
             display: "block",
             width: { xs: 200, md: "100%" },
+            "@media print": { width: "100%" },
             aspectRatio: "4 / 5",
             objectFit: "cover",
             objectPosition: "50% 25%",
@@ -292,6 +308,7 @@ const CV = () => {
           display: { xs: "contents", md: "flex" },
           flexDirection: "column",
           gap: 8,
+          "@media print": { display: "flex", gap: 5 },
         }}
       >
         <Box component="header" sx={{ order: { xs: 1, md: 0 }, pt: { md: 1 } }}>
@@ -311,9 +328,18 @@ const CV = () => {
         </Box>
 
         <Section title="Professional Experience" order={3}>
-          <Box sx={{ display: "grid", rowGap: 4.5 }}>
+          <Box
+            sx={{
+              display: "grid",
+              rowGap: 4.5,
+              "@media print": { rowGap: 3 },
+            }}
+          >
             {experience.map((job) => (
-              <Box key={`${job.company}-${job.period}`}>
+              <Box
+                key={`${job.company}-${job.period}`}
+                sx={{ breakInside: "avoid" }}
+              >
                 <Box
                   sx={{
                     display: "flex",
@@ -364,7 +390,13 @@ const CV = () => {
         </Section>
 
         <Section title="Education & Training" order={4}>
-          <Box sx={{ display: "grid", rowGap: 2 }}>
+          <Box
+            sx={{
+              display: "grid",
+              rowGap: 2,
+              "@media print": { rowGap: 1 },
+            }}
+          >
             {education.map((item) => (
               <Box
                 key={item.title}

@@ -10,7 +10,7 @@ const experience = [
   {
     role: "QA Automation / Frontend Developer",
     company: "Luxoft",
-    period: "11/23 – 05/26",
+    period: "11/23 – 10/26",
     duties: [
       "Wrote and maintained automated UI tests with Playwright",
       "Wrote SQL queries to work with and verify application data in PostgreSQL",

@@ -4,7 +4,7 @@ const experience = [
   {
     role: "React Frontend Developer",
     company: "Luxoft",
-    period: "11/23 – 05/26",
+    period: "11/23 – 10/26",
     duties: [
       "Developed and maintained web application features using React and JavaScript",
       "Built a booking system with a calendar interface for reserving test rigs and managing their availability",
